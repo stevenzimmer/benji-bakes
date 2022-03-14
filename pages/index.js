@@ -269,7 +269,7 @@ export default function Home({ products }) {
                                     // console.log({ item });
                                     const dollars = item.amount / 100;
                                     return (
-                                        <>
+                                        <div key={i}>
                                             <Center py={12}>
                                                 <Box
                                                     role={"group"}
@@ -416,7 +416,7 @@ export default function Home({ products }) {
                                                     )}
                                                 </div>
                                             </div> */}
-                                        </>
+                                        </div>
                                     );
                                 })}
                             </div>
@@ -439,39 +439,37 @@ export default function Home({ products }) {
                                     const itemTotal =
                                         (item.amount * item.quantity) / 100;
                                     return (
-                                        <>
-                                            <Tr>
-                                                <Td>{item.name}</Td>
-                                                <Td>{item.quantity}</Td>
-                                                <Td isNumeric>
-                                                    {itemTotal.toLocaleString(
-                                                        "en-US",
-                                                        {
-                                                            style: "currency",
-                                                            currency: "USD",
-                                                        }
-                                                    )}
-                                                </Td>
-                                            </Tr>
-                                        </>
+                                        <Tr key={i}>
+                                            <Td>{item.name}</Td>
+                                            <Td>{item.quantity}</Td>
+                                            <Td isNumeric>
+                                                {itemTotal.toLocaleString(
+                                                    "en-US",
+                                                    {
+                                                        style: "currency",
+                                                        currency: "USD",
+                                                    }
+                                                )}
+                                            </Td>
+                                        </Tr>
                                     );
                                 })}
-                                <Tfoot>
-                                    <Tr>
-                                        <Th>Total</Th>
-                                        {/* <Th>into</Th> */}
-                                        <Th isNumeric>
-                                            {getTotal(cart).toLocaleString(
-                                                "en-US",
-                                                {
-                                                    style: "currency",
-                                                    currency: "USD",
-                                                }
-                                            )}
-                                        </Th>
-                                    </Tr>
-                                </Tfoot>
                             </Tbody>
+                            <Tfoot>
+                                <Tr>
+                                    <Th>Total</Th>
+                                    {/* <Th>into</Th> */}
+                                    <Th isNumeric>
+                                        {getTotal(cart).toLocaleString(
+                                            "en-US",
+                                            {
+                                                style: "currency",
+                                                currency: "USD",
+                                            }
+                                        )}
+                                    </Th>
+                                </Tr>
+                            </Tfoot>
                         </Table>
                         <div>
                             {currentUser && (

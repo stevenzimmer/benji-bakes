@@ -10,7 +10,7 @@ import { FirebaseAppProvider } from "reactfire";
 
 import { firebaseConfig } from "@/lib/firebase-app";
 import { ChakraProvider } from "@chakra-ui/react";
-const GmapApi = "AIzaSyB75QZyBOQz908B2PzqSiUXhScd2rkRYY4";
+const GmapApi = process.env.NEXT_PUBLIC_GMAP_API_KEY;
 
 function BBApp({ Component, pageProps }) {
     return (
